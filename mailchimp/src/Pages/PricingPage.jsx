@@ -1,6 +1,7 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Box } from '@chakra-ui/react'
 import ThreeTierPricing from '../Features/pricingCards'
 import Pricing from '../Features/pricing'
+import Commerce from '../Features/Commerce'
 export default function PricingPage(){
     return(
         <Box>
@@ -12,10 +13,12 @@ export default function PricingPage(){
     </TabList>
     <TabPanels>
         <TabPanel>
-            <Box><ThreeTierPricing/></Box>
+            <Box><Pricing/></Box>
         </TabPanel>
         <TabPanel>
-        <Box><Pricing/></Box>
+        <Box>
+        <Commerce/>
+        </Box>
         </TabPanel>
         <TabPanel>
         <Box><ThreeTierPricing/></Box>
