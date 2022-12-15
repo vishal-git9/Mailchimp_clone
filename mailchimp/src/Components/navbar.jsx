@@ -8,24 +8,31 @@ import {
   transition,
 } from "@chakra-ui/react";
 import { useRef,useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import ProductSidebar from "./sidebar"
 export default function Navbar() {
+  const navigate = useNavigate()
   // const getel = useRef(null)
-  const [isHovering, setIsHovering] = useState(false);
+  // const [isHovering, setIsHovering] = useState(false);
   const Products = useRef(null)
   const Inspiration = useRef(null)
   const Resources = useRef(null)
-  const handleMouseOver = () => {
-    setIsHovering(true);
-    console.log(Products.current.innerText)
-  };
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
+  // for pages
+  const LoginPage = ()=>{
+    return navigate("/login")
+  }
+  const SignupPage = ()=>{
+    return navigate("/signup")
+  }
+  const ProductsPage = ()=>{
+    return navigate("/")
+  }
+  const PricingPage = ()=>{
+    return navigate("/pricing")
+  }
 
   return (
-    <Box position={"relative"} width="100%">
+    <Box width="100%">
       <Box width={"100%"}
       display="flex"
       justifyContent={"space-around"}
@@ -41,8 +48,7 @@ export default function Navbar() {
             textDecoration: "underline",
             cursor: "pointer",
           }} 
-          ref={Products}
-          onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+          ref={Products} onClick={ProductsPage}>
           Products
         </Text>
         <Text
@@ -74,6 +80,7 @@ export default function Navbar() {
             cursor: "pointer",
           }} 
           // onClick={getPricing}
+          onClick={PricingPage}
         >
           Pricing
         </Text>
@@ -93,7 +100,7 @@ export default function Navbar() {
           _hover={{
             backgroundColor: "#FFE01B",
             transition: ".5s",
-          }}
+          }} onClick = {LoginPage}
         >
           Log in
         </Button>
@@ -103,15 +110,15 @@ export default function Navbar() {
           _hover={{
             backgroundColor: "#FFE01B",
             transition: ".5s",
-          }}
+          }} onClick = {SignupPage}
         >
           Sign up
         </Button>
       </Flex>
       </Box>
-      <Box position={"sticky"} zIndex="1000" top={"0"} left="0" width={"50%"} >
-      {isHovering && (<ProductSidebar isHovering={isHovering}/>)}
+      {/* <Box position={"sticky"} zIndex="1000" top={"0"} left="0" width={"50%"} > */}
+      {/* {isHovering && (<ProductSidebar isHovering={isHovering}/>)} */}
       </Box>
-    </Box>
+    
   );
 }

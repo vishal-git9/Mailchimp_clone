@@ -7,9 +7,22 @@ import {
   Button,
   AspectRatio,
   Box,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 import Platform1Hd from "../Images/Platform1Hd.mp4";
-import ThreeTierPricing from "./pricingCards"
+import ThreeTierPricing from "./pricingCards";
+import Automate_cart from "../Images/Automate_cart.gif";
+import AI_animate from "../Images/AI_animate.gif";
+import Email2 from "../Images/Email2.gif";
+import Footer from "../Components/footer"
 import {
   Card,
   CardHeader,
@@ -21,7 +34,7 @@ import {
 
 export default function CallToActionWithIllustration() {
   return (
-    <Container maxW={"8xl"}>
+    <Container maxW={"9xl"}>
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -58,7 +71,11 @@ export default function CallToActionWithIllustration() {
       </Stack>
       <Cards />
       <Video />
-      <ThreeTierPricing/>
+      <ThreeTierPricing />
+      <Journey />
+      <JourneySecond />
+      <JourneyThree />
+      <Integrations/>
     </Container>
   );
 }
@@ -207,7 +224,13 @@ function Video() {
       <Box>
         <video src={Platform1Hd} width="1200px" controls></video>
       </Box>
-      <Text mt={"30px"} color="white" textAlign={"center"} width="60%" fontSize={"20px"}>
+      <Text
+        mt={"30px"}
+        color="white"
+        textAlign={"center"}
+        width="60%"
+        fontSize={"20px"}
+      >
         Most email marketing platforms tell you how your campaigns perform. We
         analyze the data from the billions of emails we send to give you
         personalized recommendations for improving your content, targeting, and
@@ -215,4 +238,305 @@ function Video() {
       </Text>
     </Box>
   );
+}
+
+function Journey() {
+  return (
+    <Stack
+      direction={["column", "row"]}
+      spacing="24px"
+      mt={"2rem"}
+      justifyContent={"space-around"}
+    >
+      <Box>
+        <Image src={Automate_cart}></Image>
+      </Box>
+      <Flex
+        flexDirection="column"
+        justifyContent={"center"}
+        width="40%"
+        gap={"20px"}
+      >
+        <Heading>Keep your emails relevant and your brand growing</Heading>
+        <Text>
+          Get a head start with pre-built journeys that help you cross-sell your
+          products, recover abandoned carts, re-engage existing customers, and
+          win new ones.
+        </Text>
+        <Button
+          width={"fit-content"}
+          background="none"
+          border={"1px solid black"}
+          borderRadius="15px"
+          padding={"12px 10px"}
+          _hover={{
+            backgroundColor: "#FFE01B",
+          }}
+        >
+          Learn more
+        </Button>
+      </Flex>
+    </Stack>
+  );
+}
+function JourneySecond() {
+  return (
+    <Stack
+      direction={["column", "row"]}
+      spacing="24px"
+      mt={"2rem"}
+      justifyContent={"space-around"}
+    >
+      <Flex
+        flexDirection="column"
+        justifyContent={"center"}
+        width="40%"
+        gap={"20px"}
+      >
+        <Heading>Discover new ways to automate</Heading>
+        <Text>
+          Use our intelligent predictions to tighten your targeting strategy,
+          strengthen customer relationships, and drive repeat sales.
+        </Text>
+        <Button
+          width={"fit-content"}
+          background="none"
+          border={"1px solid black"}
+          borderRadius="15px"
+          padding={"12px 10px"}
+          _hover={{
+            backgroundColor: "#FFE01B",
+          }}
+        >
+          Learn more
+        </Button>
+      </Flex>
+      <Box>
+        <Image src={AI_animate}></Image>
+      </Box>
+    </Stack>
+  );
+}
+function JourneyThree() {
+  return (
+    <Stack
+      direction={["column", "row"]}
+      spacing="24px"
+      mt={"2rem"}
+      justifyContent={"space-around"}
+    >
+      <Flex
+        flexDirection="column"
+        justifyContent={"center"}
+        width="40%"
+        gap={"20px"}
+      >
+        <Heading>Keep customers ready to buy with engaging content</Heading>
+        <Accordion defaultIndex={[0]} allowMultiple m={"5px"}>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  Content Optimizer
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              Learn how your emails compare to the top-performing campaigns in
+              your industry and get data-driven suggestions for improving your
+              copy, imagery, and layout.
+            </AccordionPanel>
+          </AccordionItem>
+
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  Creative assistant
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              Our Creative Assistant will help you stand out by using AI to
+              create custom designs for your brand.
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+        <Button
+          width={"fit-content"}
+          background="none"
+          border={"1px solid black"}
+          borderRadius="15px"
+          padding={"12px 10px"}
+          _hover={{
+            backgroundColor: "#FFE01B",
+          }}
+        >
+          Learn more
+        </Button>
+      </Flex>
+      <Box>
+        <Image src={Email2}></Image>
+      </Box>
+    </Stack>
+  );
+}
+
+
+function Integrations(){
+  return(
+    <Box width={"90%"} margin="auto">
+      <Heading width={"50%"}>
+      Bring in more data, drive more growth with our integrations
+      </Heading>
+    <SimpleGrid columns={3} spacing={10} mt="2rem">
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/egMxvwdsj41K5eESLhWBO/cf823adbd311e33919f97ffc5bf3181d/Canva.jpg?w=196&fm=webp&q=80" alt="canva_logo" height={"100px"}>
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>Canva</Text>
+        <Text>Create compelling visuals for your marketing</Text>
+        </Box>
+      </Flex>
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/51oq4AakIqo8fATlHgqHK0/02a750b1c1a16745296dca6fa7cb830c/Salesforce__1_.jpg?w=196&fm=webp&q=80" alt="canva_logo" >
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>LightMail for salesforce</Text>
+        <Text>Sync your Lightmail subscribers and salseforce leads across platforms</Text>
+        </Box>
+      </Flex>
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/67trWJLKtKcvrqlKYSlskE/696ad499e0cc60aa7392521a6a7cfd90/Instagram__1_.jpg?w=196&fm=webp&q=80" alt="canva_logo" height={"100px"}>
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>Canva</Text>
+        <Text>Create compelling visuals for your marketing</Text>
+        </Box>
+      </Flex>
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/44dW9Z4hibyDYi0qggfets/b01884985e996ffb5dc133556b92bb7a/Shopify__1_.jpg?w=196&fm=webp&q=80" alt="canva_logo" height={"100px"}>
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>Canva</Text>
+        <Text>Create compelling visuals for your marketing</Text>
+        </Box>
+      </Flex>
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/7mpZ7UZrdzk2BmWX1OnRvb/5e610ecd21eeb25d0b82b098ce424e34/Google_Analytics2.jpg?w=196&fm=webp&q=80" alt="canva_logo" height={"100px"}>
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>Canva</Text>
+        <Text>Create compelling visuals for your marketing</Text>
+        </Box>
+      </Flex>
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/2uruOq31Y1FKdghFWn5zMg/8a35f3f9e463ba34038f3c3f16ccb635/WooCommerce.jpg?w=196&fm=webp&q=80" alt="canva_logo" height={"100px"}>
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>Canva</Text>
+        <Text>Create compelling visuals for your marketing</Text>
+        </Box>
+      </Flex>
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/uZVnrVt3DO1G4Ec5G4pvs/e6c9d3c2613827f7dd238f1c5e0b02d9/Quickbooks.jpg?w=196&fm=webp&q=80" alt="canva_logo" height={"100px"}>
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>Canva</Text>
+        <Text>Create compelling visuals for your marketing</Text>
+        </Box>
+      </Flex>
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/2klSrOoLZKmLuGKZjKT9o3/ca400f60c2f3673f3ab9b52f4d03360d/Squarespace.jpg?w=196&fm=webp&q=80" alt="canva_logo" height={"100px"}>
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>Canva</Text>
+        <Text>Create compelling visuals for your marketing</Text>
+        </Box>
+      </Flex>
+      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+        {
+          backgroundColor:"#EFEEEA",
+          cursor:"pointer",
+          transition:"0.5s"
+        }
+      }>
+        <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+          <Image src="https://eep.io/images/yzco4xsimv0y/26deBkGp3A5Pj7suZ9oV7V/858e8a4603707166988a3282bca7e29b/Zapier.jpg?w=196&fm=webp&q=80" alt="canva_logo" height={"100px"} >
+          </Image>
+        </Box>
+        <Box display={"flex"} flexDirection="column" gap={"10px"} justifyContent="center">
+        <Text fontWeight={"bold"}>Canva</Text>
+        <Text>Create compelling visuals for your marketing</Text>
+        </Box>
+      </Flex>
+    </SimpleGrid>
+    </Box>
+  )
 }
