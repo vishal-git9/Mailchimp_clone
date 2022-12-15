@@ -411,9 +411,9 @@ export default function Pricing() {
 
 function Accordi() {
   return (
-    <Box mt={"4rem"}>
+    <Box mt={"4rem"} width="80%" margin={"auto"}>
       <Heading>FAQ's</Heading>
-    <Accordion allowToggle m={"5px"} isFocusable="true" mt={"50px"}>
+    <Accordion allowToggle m={"5px"} mt={"50px"}>
       <AccordionItem padding={"5px"}>
         <h2>
           <AccordionButton>
