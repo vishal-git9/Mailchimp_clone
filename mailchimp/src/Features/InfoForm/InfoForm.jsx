@@ -17,8 +17,10 @@ import {
   Textarea,
   FormHelperText,
   InputRightElement,
+  VStack,
+  HStack,
 } from '@chakra-ui/react';
-
+import { Radio, RadioGroup } from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react';
 
 const Form1 = () => {
@@ -27,7 +29,7 @@ const Form1 = () => {
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-        User Registration
+        Tell us a bit about you
       </Heading>
       <Flex>
         <FormControl mr="5%">
@@ -46,21 +48,21 @@ const Form1 = () => {
       </Flex>
       <FormControl mt="2%">
         <FormLabel htmlFor="email" fontWeight={'normal'}>
-          Email address
+          Business name
         </FormLabel>
-        <Input id="email" type="email" />
-        <FormHelperText>We'll never share your email.</FormHelperText>
+        <Input id="name" type="text" />
+        <FormHelperText>We'll never share your number.</FormHelperText>
       </FormControl>
 
       <FormControl>
         <FormLabel htmlFor="password" fontWeight={'normal'} mt="2%">
-          Password
+        Phone number
         </FormLabel>
         <InputGroup size="md">
           <Input
             pr="4.5rem"
             type={show ? 'text' : 'password'}
-            placeholder="Enter password"
+            placeholder="Enter number"
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
@@ -77,7 +79,7 @@ const Form2 = () => {
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-        User Details
+        Business address
       </Heading>
       <FormControl as={GridItem} colSpan={[6, 3]}>
         <FormLabel
@@ -213,7 +215,7 @@ const Form3 = () => {
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal">
-        Social Handles
+        About Business
       </Heading>
       <SimpleGrid columns={1} spacing={6}>
         <FormControl as={GridItem} colSpan={[3, 2]}>
@@ -253,7 +255,7 @@ const Form3 = () => {
             _dark={{
               color: 'gray.50',
             }}>
-            About
+            About your Business
           </FormLabel>
           <Textarea
             placeholder="you@example.com"
@@ -265,7 +267,7 @@ const Form3 = () => {
             }}
           />
           <FormHelperText>
-            Brief description for your profile. URLs are hyperlinked.
+            Brief description for your Business. URLs are hyperlinked.
           </FormHelperText>
         </FormControl>
       </SimpleGrid>
@@ -273,10 +275,74 @@ const Form3 = () => {
   );
 };
 
+// form 4
+
+const Form4 = () => {
+  return (
+    <>
+      <Heading w="100%" textAlign={'center'} fontWeight="normal">
+        What do you want to achieve with Lightmail?
+      </Heading>
+      <RadioGroup>
+      <VStack direction={"column"} gap={"20px"} alignItems="flex-start" mt={"30px"}>
+      <Box width="100%" padding={"10px"} _hover={{
+        border:"1px solid blue",
+        transition:"0.5s"
+      }}><Radio value='1' >Drive sales, revenues or conversions</Radio></Box>
+      <Box width="100%" padding={"10px"} _hover={{
+        border:"1px solid blue",
+        transition:"0.5s"
+      }}><Radio value="2">Send emails people find helpful or entertaining</Radio></Box>
+      <Box width="100%" padding={"10px"} _hover={{
+        border:"1px solid blue",
+        transition:"0.5s"
+      }}><Radio value='3'>Build a website to market my Business or sell stuff</Radio></Box>
+      <Box width="100%" padding={"10px"} _hover={{
+        border:"1px solid blue",
+        transition:"0.5s"
+      }}><Radio  value='4'>Grow my list of email subscribers</Radio></Box>
+      </VStack>
+      </RadioGroup>
+    </>
+  );
+};
+
+// form 5
+
+const Form5 = () => {
+  return (
+    <>
+      <Heading w="100%" textAlign={'center'} fontWeight="normal">
+        Great! What do you want to explore first?
+      </Heading>
+      <RadioGroup>
+      <VStack direction={"column"} gap={"20px"} alignItems="flex-start" mt={"30px"}>
+      <Box width="100%" padding={"10px"} _hover={{
+        border:"1px solid blue",
+        transition:"0.5s"
+      }}><Radio value='1' >Email</Radio></Box>
+      <Box width="100%" padding={"10px"} _hover={{
+        border:"1px solid blue",
+        transition:"0.5s"
+      }}><Radio value="2">Automation</Radio></Box>
+      <Box width="100%" padding={"10px"} _hover={{
+        border:"1px solid blue",
+        transition:"0.5s"
+      }}><Radio value='3'>Signingup Forms</Radio></Box>
+      <Box width="100%" padding={"10px"} _hover={{
+        border:"1px solid blue",
+        transition:"0.5s"
+      }}><Radio  value='4'>Something else</Radio></Box>
+      </VStack>
+      </RadioGroup>
+    </>
+  );
+};
+
 export default function InfoForm() {
   const toast = useToast();
   const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(33.33);
+  const [progress, setProgress] = useState(20);
   return (
     <>
       <Box
@@ -293,14 +359,14 @@ export default function InfoForm() {
           mb="5%"
           mx="5%"
           isAnimated></Progress>
-        {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
+        {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : step==3 ? <Form3 /> : step==4 ? <Form4 /> : <Form5 />}
         <ButtonGroup mt="5%" w="100%">
           <Flex w="100%" justifyContent="space-between">
             <Flex>
               <Button
                 onClick={() => {
                   setStep(step - 1);
-                  setProgress(progress - 33.33);
+                  setProgress(progress - 20);
                 }}
                 isDisabled={step === 1}
                 colorScheme="teal"
@@ -311,13 +377,13 @@ export default function InfoForm() {
               </Button>
               <Button
                 w="7rem"
-                isDisabled={step === 3}
+                isDisabled={step === 5}
                 onClick={() => {
                   setStep(step + 1);
-                  if (step === 3) {
+                  if (step === 5) {
                     setProgress(100);
                   } else {
-                    setProgress(progress + 33.33);
+                    setProgress(progress + 20);
                   }
                 }}
                 colorScheme="teal"
@@ -325,7 +391,7 @@ export default function InfoForm() {
                 Next
               </Button>
             </Flex>
-            {step === 3 ? (
+            {step === 5 ? (
               <Button
                 w="7rem"
                 colorScheme="red"
@@ -337,6 +403,7 @@ export default function InfoForm() {
                     status: 'success',
                     duration: 3000,
                     isClosable: true,
+                    position:"top"
                   });
                 }}>
                 Submit
