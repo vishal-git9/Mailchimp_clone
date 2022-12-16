@@ -12,14 +12,18 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    Link,
   } from '@chakra-ui/react';
+  import { Link } from 'react-router-dom';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-  
+  import { useNavigate } from 'react-router-dom';
   export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
-  
+    const navigate = useNavigate()
+
+    const Infoform = ()=>{
+      navigate("/infoForm")
+    }
     return (
       <Flex
         minH={'100vh'}
@@ -82,13 +86,13 @@ import {
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
-                  }}>
+                  }}    onClick={Infoform}  >
                   Sign up
                 </Button>
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  Already a user? <Link color={'blue.400'} to="/login">Login</Link>
                 </Text>
               </Stack>
             </Stack>

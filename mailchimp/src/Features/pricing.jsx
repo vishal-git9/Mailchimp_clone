@@ -26,6 +26,7 @@ import {
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { useState } from "react";
 import ContentWithButton from "./contentWithButton";
+import { useNavigate } from "react-router-dom";
 
 const Content = {
   content1: {
@@ -66,25 +67,32 @@ function PriceWrapper({ children }: { children: ReactNode }) {
 }
 
 export default function Pricing() {
+  // use navigate
+  const navigate = useNavigate()
   const [Premium, setPremium] = useState(149);
-  const [Standard, setStandard] = useState(79);
-  const [Essential, setEssential] = useState(49);
+  const [Standard, setStandard] = useState(83);
+  const [Essential, setEssential] = useState(50);
   const [Numb, setNumb] = useState(500);
   const [Free, setFree] = useState(0);
   const changePrice = (e) => {
     let num = Number(e.target.value);
-    let pre = 149 * 0.125;
-    let ese = 79 * 0.125;
-    let sta = 49 * 0.125;
+    // let pre = 149 * 0.125;
+    // let ese = 79 * 0.125;
+    // let sta = 49 * 0.125;
     if (num >= 10000) {
-      setPremium(Math.floor(num * pre));
+      setPremium(Math.floor(num /6));
     } else {
-      setStandard(Math.floor(num * ese));
-      setEssential(Math.floor(num * sta));
+      setStandard(Math.floor(num /6));
+      setEssential(Math.floor(num /10));
       setPremium(149);
     }
     setNumb(num);
   };
+
+  // for navigating it to the signup page
+  const signupPage = ()=>{
+    navigate("/signup")
+  }
   return (
     <Box py={12} textAlign="center">
       <HStack spacing={2} textAlign="center" justifyContent="center">
@@ -156,7 +164,7 @@ export default function Pricing() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="red" variant="outline">
+              <Button w="full" colorScheme="red" variant="outline" onClick={signupPage}>
                 Start trial
               </Button>
             </Box>
@@ -233,7 +241,7 @@ export default function Pricing() {
                 </ListItem>
               </List>
               <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="red" disabled={Numb === 10000}>
+                <Button w="full" colorScheme="red" disabled={Numb === 10000} onClick={signupPage}>
                   Start trial
                 </Button>
               </Box>
@@ -294,6 +302,7 @@ export default function Pricing() {
                 colorScheme="red"
                 variant="outline"
                 disabled={Numb === 10000}
+                onClick={signupPage}
               >
                 Start trial
               </Button>
@@ -350,7 +359,7 @@ export default function Pricing() {
                 w="full"
                 colorScheme="red"
                 variant="outline"
-                disabled={Numb > 500}
+                disabled={Numb > 500} onClick={signupPage}
               >
                 Start trial
               </Button>
