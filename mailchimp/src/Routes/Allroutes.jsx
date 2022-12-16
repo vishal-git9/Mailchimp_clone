@@ -4,6 +4,8 @@ import Signup from "./Signup"
 import CallToActionWithIllustration from "../Features/features"
 import PricingPage from "../Pages/PricingPage"
 import InfoForm from "../Features/InfoForm/InfoForm"
+import Dashboard from "../Features/Dashboard/dashboard"
+import PrivateRoute from "./privateRoute"
 export default function AllRoutes(){
     return(
         <Routes>
@@ -12,6 +14,7 @@ export default function AllRoutes(){
             <Route path="/signup" element={<Signup/>}></Route>
             <Route path="/pricing" element={<PricingPage/>}></Route>
             <Route path="/infoForm" element={<InfoForm/>}></Route>
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>}></Route>
         </Routes>
     )
 }

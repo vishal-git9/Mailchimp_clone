@@ -21,10 +21,10 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { Radio, RadioGroup } from '@chakra-ui/react'
-import { useToast } from '@chakra-ui/react';
-
+import { useNavigate } from 'react-router-dom';
 const Form1 = () => {
   const [show, setShow] = React.useState(false);
+ 
   const handleClick = () => setShow(!show);
   return (
     <>
@@ -340,9 +340,9 @@ const Form5 = () => {
 };
 
 export default function InfoForm() {
-  const toast = useToast();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(20);
+  const navigate = useNavigate()
   return (
     <>
       <Box
@@ -397,14 +397,7 @@ export default function InfoForm() {
                 colorScheme="red"
                 variant="solid"
                 onClick={() => {
-                  toast({
-                    title: 'Account created.',
-                    description: "We've created your account for you.",
-                    status: 'success',
-                    duration: 3000,
-                    isClosable: true,
-                    position:"top"
-                  });
+                  return navigate("/dashboard")
                 }}>
                 Submit
               </Button>

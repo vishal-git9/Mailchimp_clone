@@ -29,6 +29,9 @@ import Automate_cart from "../Images/Automate_cart.gif";
 import AI_animate from "../Images/AI_animate.gif";
 import Email2 from "../Images/Email2.gif";
 import Footer from "../Components/footer"
+import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
+import LightSpeed from 'react-reveal/LightSpeed';
 import {
   Card,
   CardHeader,
@@ -78,12 +81,24 @@ export default function CallToActionWithIllustration() {
           </Button>
         </Stack>
       </Stack>
+      <Fade left>
       <Cards />
+      </Fade>
+      <Fade left>
       <Video />
+      </Fade>
+      <Zoom right>
       <ThreeTierPricing />
+      </Zoom>
+      <LightSpeed left>
       <Journey />
+      </LightSpeed>
+      <LightSpeed right>
       <JourneySecond />
+      </LightSpeed>
+      <LightSpeed left>
       <JourneyThree />
+      </LightSpeed>
       <Integrations/>
     </Container>
   );
@@ -397,11 +412,13 @@ function JourneyThree() {
 function Integrations(){
   return(
     <Box width={"90%"} margin="auto">
+      <Fade right>
       <Heading width={"50%"}>
       Bring in more data, drive more growth with our integrations
       </Heading>
+      </Fade>
     <SimpleGrid columns={3} spacing={10} mt="2rem">
-      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+      <Fade left><Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
           cursor:"pointer",
@@ -417,6 +434,8 @@ function Integrations(){
         <Text>Create compelling visuals for your marketing</Text>
         </Box>
       </Flex>
+      </Fade>
+      <Fade right>
       <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
@@ -433,7 +452,8 @@ function Integrations(){
         <Text>Sync your Lightmail subscribers and salseforce leads across platforms</Text>
         </Box>
       </Flex>
-      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+      </Fade>
+      <Fade left><Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
           cursor:"pointer",
@@ -449,7 +469,8 @@ function Integrations(){
         <Text>Create compelling visuals for your marketing</Text>
         </Box>
       </Flex>
-      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+      </Fade>
+      <Fade right><Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
           cursor:"pointer",
@@ -465,7 +486,8 @@ function Integrations(){
         <Text>Create compelling visuals for your marketing</Text>
         </Box>
       </Flex>
-      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+      </Fade>
+      <Fade left><Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
           cursor:"pointer",
@@ -481,7 +503,8 @@ function Integrations(){
         <Text>Create compelling visuals for your marketing</Text>
         </Box>
       </Flex>
-      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+      </Fade>
+      <Fade right><Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
           cursor:"pointer",
@@ -497,7 +520,8 @@ function Integrations(){
         <Text>Create compelling visuals for your marketing</Text>
         </Box>
       </Flex>
-      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+      </Fade>
+      <Fade left><Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
           cursor:"pointer",
@@ -513,6 +537,8 @@ function Integrations(){
         <Text>Create compelling visuals for your marketing</Text>
         </Box>
       </Flex>
+      </Fade>
+      <Fade right>
       <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
@@ -529,7 +555,8 @@ function Integrations(){
         <Text>Create compelling visuals for your marketing</Text>
         </Box>
       </Flex>
-      <Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+      </Fade>
+      <Fade left><Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
         {
           backgroundColor:"#EFEEEA",
           cursor:"pointer",
@@ -545,6 +572,7 @@ function Integrations(){
         <Text>Create compelling visuals for your marketing</Text>
         </Box>
       </Flex>
+      </Fade>
     </SimpleGrid>
     </Box>
   )
