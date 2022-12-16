@@ -7,10 +7,18 @@ import {
   Button,
   transition,
 } from "@chakra-ui/react";
+import { AuthContext } from "../Context/Authcontext";
 import { useRef,useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import ProductSidebar from "./sidebar"
+import AvatarButton from "./Avatar";
+import { useContext } from "react";
+import LoginButton from "./LoginButton";
 export default function Navbar() {
+  // consuming the context
+  const{AuthStatus} = useContext(AuthContext)
+  const{isAuth,data} = AuthStatus
+  console.log(isAuth)
   const navigate = useNavigate()
   // const getel = useRef(null)
   // const [isHovering, setIsHovering] = useState(false);
@@ -22,7 +30,7 @@ export default function Navbar() {
     return navigate("/login")
   }
   const SignupPage = ()=>{
-    return navigate("/signup")
+    return navigate("/pricing")
   }
   const ProductsPage = ()=>{
     return navigate("/")
@@ -30,6 +38,8 @@ export default function Navbar() {
   const PricingPage = ()=>{
     return navigate("/pricing")
   }
+
+  
 
   return (
     <Box width="100%">
@@ -86,35 +96,9 @@ export default function Navbar() {
         </Text>
       </Flex>
       <Stack>
-        <Image
-          src="https://i.ibb.co/jkyhkNB/Light-mail.png"
-          width={"150px"}
-          height="50px"
-          objectFit={"cover"}
-        ></Image>
-      </Stack>
-      <Flex gap={"10px"}>
-        <Button
-          variant="outline"
-          borderRadius={"10px"}
-          _hover={{
-            backgroundColor: "#FFE01B",
-            transition: ".5s",
-          }} onClick = {LoginPage}
-        >
-          Log in
-        </Button>
-        <Button
-          variant="outline"
-          borderRadius={"10px"}
-          _hover={{
-            backgroundColor: "#FFE01B",
-            transition: ".5s",
-          }} onClick = {SignupPage}
-        >
-          Sign up
-        </Button>
-      </Flex>
+        <Image src="https://i.ibb.co/jkyhkNB/Light-mail.png" width={"150px"} height="50px" objectFit={"cover"}></Image>
+        </Stack>
+        {isAuth?<AvatarButton/>:<LoginButton LoginPage={LoginPage} SignupPage={SignupPage}/>}
       </Box>
       {/* <Box position={"sticky"} zIndex="1000" top={"0"} left="0" width={"50%"} > */}
       {/* {isHovering && (<ProductSidebar isHovering={isHovering}/>)} */}

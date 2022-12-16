@@ -11,6 +11,12 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from '@chakra-ui/react'
+import {
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -31,8 +37,11 @@ import {
   SimpleGrid,
   Image,
 } from "@chakra-ui/react";
-
+import { AuthContext } from "../Context/Authcontext";
+import { useContext } from "react";
 export default function CallToActionWithIllustration() {
+  const{AuthStatus} = useContext(AuthContext)
+  const{isAuth,data} = AuthStatus
   return (
     <Container maxW={"9xl"}>
       <Stack
