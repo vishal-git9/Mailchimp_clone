@@ -352,7 +352,7 @@ export default function InfoForm() {
         maxWidth={800}
         p={6}
         m="10px auto"
-        as="form">
+        as="form" mt="150px">
         <Progress
           hasStripe
           value={progress}

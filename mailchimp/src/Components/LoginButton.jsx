@@ -3,21 +3,21 @@ export default function LoginButton({LoginPage,SignupPage}){
     return(
         <Flex gap={"10px"}>
         <Button
-          variant="outline"
-          borderRadius={"10px"}
-          _hover={{
-            backgroundColor: "#FFE01B",
-            transition: ".5s",
-          }} onClick = {LoginPage}
-        >
+          as={'a'}
+          fontSize={'sm'}
+          fontWeight={400}
+          cursor="pointer"
+          variant={'outline'} onClick = {LoginPage}>
           Log in
         </Button>
         <Button
-          variant="outline"
-          borderRadius={"10px"}
+          display={{ base: 'none', md: 'inline-flex' }}
+          fontSize={'sm'}
+          fontWeight={600}
+          color={'black'}
+          bg={"#FFE01B"}
           _hover={{
-            backgroundColor: "#FFE01B",
-            transition: ".5s",
+            bg: "#FFE01B",
           }} onClick = {SignupPage}
         >
           Sign up

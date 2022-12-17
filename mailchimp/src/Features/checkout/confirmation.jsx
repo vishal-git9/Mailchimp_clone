@@ -25,7 +25,7 @@ export default function Confirmation() {
         },5000)
     },[])
   return (
-    <Stack alignItems={"center"}>
+    <Stack alignItems={"center"} mt="150px">
     <Alert
       status="success"
       variant="subtle"
