@@ -1,5 +1,6 @@
 import { Stack,Box,Flex,Heading,Text,Button,Image } from "@chakra-ui/react";
-
+import Slide from "react-reveal/Slide"
+import Zoom from "react-reveal/Zoom"
 export default function ImageButton({image,heading,text,buttonText}) {
     return (
       <Stack
@@ -8,19 +9,25 @@ export default function ImageButton({image,heading,text,buttonText}) {
         mt={"2rem"}
         justifyContent={"space-around"}
       >
+        <Zoom left>
         <Box>
           <Image src={image}></Image>
         </Box>
+        </Zoom>
         <Flex
           flexDirection="column"
           justifyContent={"center"}
           width="40%"
           gap={"20px"}
         >
+          <Slide right>
           <Heading>{heading}</Heading>
+          </Slide>
+          <Slide right>
           <Text>
             {text}
           </Text>
+          </Slide>
           <Button
             width={"fit-content"}
             background="none"
