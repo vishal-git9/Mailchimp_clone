@@ -90,7 +90,7 @@ export default function Pricing() {
 
   // for navigating it to the signup page
   const signupPage = ()=>{
-    navigate("/signup")
+    navigate("/checkout")
   }
   return (
     <Box py={12} textAlign="center">
