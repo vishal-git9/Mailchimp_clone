@@ -74,7 +74,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
     message();
   }, []);
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")} >
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -93,7 +93,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
-      <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
+      <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} mt="60px" />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
       </Box>
@@ -195,7 +195,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       />
 
       <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        Logo
+        Dashboard
       </Text>
     </Flex>
   );

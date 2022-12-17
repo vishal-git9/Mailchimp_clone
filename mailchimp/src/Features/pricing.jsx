@@ -89,7 +89,18 @@ export default function Pricing() {
   };
 
   // for navigating it to the signup page
-  const signupPage = ()=>{
+  const signupPage = (e)=>{
+    let val = e.target.id
+    if(val=="1"){
+      localStorage.setItem("pricing",JSON.stringify(Premium))
+    }else if(val=="2"){
+      localStorage.setItem("pricing",JSON.stringify(Standard))
+    }else if(val=="3"){
+      localStorage.setItem("pricing",JSON.stringify(Essential))
+    }else{
+      localStorage.setItem("pricing",JSON.stringify(Free))
+    }
+
     navigate("/checkout")
   }
   return (
@@ -164,7 +175,7 @@ export default function Pricing() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="red" variant="outline" onClick={signupPage}>
+              <Button id="1" w="full" colorScheme="red" variant="outline" onClick={signupPage}>
                 Start trial
               </Button>
             </Box>
@@ -241,7 +252,7 @@ export default function Pricing() {
                 </ListItem>
               </List>
               <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="red" disabled={Numb === 10000} onClick={signupPage}>
+                <Button id="2" w="full" colorScheme="red" disabled={Numb === 10000} onClick={signupPage}>
                   Start trial
                 </Button>
               </Box>
@@ -298,6 +309,7 @@ export default function Pricing() {
             </List>
             <Box w="80%" pt={7}>
               <Button
+              id="3"
                 w="full"
                 colorScheme="red"
                 variant="outline"

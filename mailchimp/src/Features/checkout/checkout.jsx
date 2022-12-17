@@ -40,13 +40,18 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import CheckoutSteps from "./checkoutSteps";
 import { useEffect } from "react";
+let pricingVal = JSON.parse(localStorage.getItem("pricing"))
 export default function Checkout() {
+  const [subscriptionPrice,setSubscriptionPrice] = useState(0)
   const OverlayOne = () => (
     <ModalOverlay
       bg='blackAlpha.300'
       backdropFilter='blur(10px) hue-rotate(90deg)'
     />
   )
+  useEffect(()=>{
+    setSubscriptionPrice(pricingVal)
+  },[])
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
   const[click,setClick] = useState(false)
@@ -90,8 +95,8 @@ export default function Checkout() {
           <Button>Cancel</Button>
         </HStack>
       </VStack>
-      <Stack width={"40%"} bgColor="#E3E9F1" padding={"30px"}>
-        <BillingSummary ConfirmationPage = {ConfirmationPage}/>
+      <Stack width={"40%"} bgColor="#E3E9F1" padding={"30px"} pt="100px">
+        <BillingSummary ConfirmationPage = {ConfirmationPage} subscriptionPrice={subscriptionPrice}/>
       </Stack>
     </Stack>
     </Stack>
@@ -183,7 +188,8 @@ function Tax() {
   );
 }
 
-function BillingSummary({ConfirmationPage}) {
+function BillingSummary({ConfirmationPage,subscriptionPrice}) {
+  let total = subscriptionPrice+1.66
   return (
     <Stack gap={"30px"}>
       <Heading>Purchase summary</Heading>
@@ -193,7 +199,7 @@ function BillingSummary({ConfirmationPage}) {
             <Text>500 contacts*</Text>
             <Text>5,000 email sends*</Text>
         </VStack>
-        <Text fontWeight={"bold"}>$9.24 / month</Text>
+        <Text fontWeight={"bold"}>{subscriptionPrice} / month</Text>
       </HStack>
       <HStack justifyContent={"space-between"}>
         <Text fontWeight={"bold"}>Tax</Text>
@@ -202,7 +208,7 @@ function BillingSummary({ConfirmationPage}) {
       <Box width={"100%"} borderTop="1px solid black"></Box>
       <HStack justifyContent={"space-between"}>
         <Text fontWeight={"bold"}>Total</Text>
-        <Text fontWeight={"bold"}>$10.90</Text>
+        <Text fontWeight={"bold"}>${total}</Text>
       </HStack>
       <Button width={"100%"} bgColor={"#004E56"} color={"white"} _hover={{
         bgColor:"#004E56"
