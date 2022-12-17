@@ -27,6 +27,8 @@ import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { useState } from "react";
 import ContentWithButton from "./contentWithButton";
 import { useNavigate } from "react-router-dom";
+import Zoom from "react-reveal/Zoom"
+import Slide from "react-reveal/Slide"
 
 const Content = {
   content1: {
@@ -76,9 +78,6 @@ export default function Pricing() {
   const [Free, setFree] = useState(0);
   const changePrice = (e) => {
     let num = Number(e.target.value);
-    // let pre = 149 * 0.125;
-    // let ese = 79 * 0.125;
-    // let sta = 49 * 0.125;
     if (num >= 10000) {
       setPremium(Math.floor(num /6));
     } else {
@@ -107,6 +106,7 @@ export default function Pricing() {
           <option value="10000">10000</option>
         </Select>
       </HStack>
+      <Zoom left>
       <Stack
         direction={{ base: "column", md: "row" }}
         textAlign="center"
@@ -367,6 +367,7 @@ export default function Pricing() {
           </VStack>
         </PriceWrapper>
       </Stack>
+      </Zoom>
       <Button textAlign={"center"} colorScheme="red">
         See all plan details
       </Button>
@@ -507,10 +508,11 @@ function Images(){
     <Stack mt={"6rem"}>
       <Heading>You’ll be in good company</Heading>
       <HStack justifyContent="center" gap="80px" paddingTop={"4rem"}>
-      <Center   ><Image src='https://eep.io/images/yzco4xsimv0y/6EIjMFs2ZyQWsmOOYc4cGe/19d62aa558c8f5d4c4bf222e7e36571b/EastFork.png?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center>
-      <Center  ><Image src='https://eep.io/images/yzco4xsimv0y/5Z9C7t0HDyyaWu60iWE00A/2e3d2eaa056d0d86c6712c88d239762f/chronicle-books-logo.jpg?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center>
-      <Center><Image src='https://eep.io/images/yzco4xsimv0y/vHWiUSlrS8sSQc0cCesGY/429d539471239d6ffcdb8be8767140cb/Fader-Logo-800px-144dpi.jpg?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center>
-      <Center ><Image src='https://eep.io/images/yzco4xsimv0y/2fZXnWbDK8ugIaCW8Qus0i/1b8f1c4aa80dda874418e4bfa29b60e5/Sweat.png?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center>
+      <Slide left>
+      <Center><Image src='https://eep.io/images/yzco4xsimv0y/6EIjMFs2ZyQWsmOOYc4cGe/19d62aa558c8f5d4c4bf222e7e36571b/EastFork.png?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center></Slide>
+      <Slide left><Center><Image src='https://eep.io/images/yzco4xsimv0y/5Z9C7t0HDyyaWu60iWE00A/2e3d2eaa056d0d86c6712c88d239762f/chronicle-books-logo.jpg?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center></Slide>
+      <Slide right><Center><Image src='https://eep.io/images/yzco4xsimv0y/vHWiUSlrS8sSQc0cCesGY/429d539471239d6ffcdb8be8767140cb/Fader-Logo-800px-144dpi.jpg?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center></Slide>
+      <Slide right><Center><Image src='https://eep.io/images/yzco4xsimv0y/2fZXnWbDK8ugIaCW8Qus0i/1b8f1c4aa80dda874418e4bfa29b60e5/Sweat.png?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center></Slide>
       </HStack>
     </Stack>
   )

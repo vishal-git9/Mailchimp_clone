@@ -10,6 +10,7 @@ import {
   VStack,
   Image,
   Divider,
+  Center,
 } from "@chakra-ui/react";
 import {
     Accordion,
@@ -19,6 +20,8 @@ import {
     AccordionIcon,
   } from "@chakra-ui/react";
 import ImageButton from "./imageWithButton";
+import Fade from "react-reveal/Fade"
+import Zoom from "react-reveal/Zoom"
 import ContentWithButton from "./contentWithButton";
 const Content = {
   content1: {
@@ -55,7 +58,7 @@ export default function Commerce() {
       mt={"50px"}
       alignItems={"center"}
       gap="80px"
-    >
+    ><Zoom left>
       <HStack width={"80%"} margin="auto" justifyContent={"center"}>
         <VStack
           boxShadow={"rgba(0, 0, 0, 0.16) 0px 1px 4px"}
@@ -180,6 +183,7 @@ export default function Commerce() {
           </Button>
         </VStack>
       </HStack>
+      </Zoom>
       {/* button */}
 
       <Button
@@ -207,12 +211,19 @@ export default function Commerce() {
         width="100%"
         gap={"10px"}
         padding="50px"
+        
+        justifyContent="center"
       >
         <Heading>Featured Product:</Heading>
+        <Fade left>
+          <Center>
         <Text width={"50%"} textAlign="center">
           Create unlimited one-on-one and group services with our new Advanced
           Scheduling add-on for $8/month.
         </Text>
+        </Center>
+        </Fade>
+        <Fade left>
         <Button
           borderRadius={"15px"}
           border="1px solid black"
@@ -223,6 +234,7 @@ export default function Commerce() {
         >
           Buy now
         </Button>
+        </Fade>
       </VStack>
       <Box>
         <ImageButton
