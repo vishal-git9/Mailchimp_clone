@@ -11,8 +11,13 @@ import {
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { AuthContext } from "../Context/Authcontext";
+import { useNavigate } from "react-router-dom";
 export default function AvatarButton({image}) {
   const {setAuthStatus} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const Dashboard = ()=>{
+    navigate("/dashboard")
+  }
   const logout = ()=>{
     setAuthStatus({
       isAuth:false,
@@ -35,7 +40,7 @@ export default function AvatarButton({image}) {
         </MenuButton>
         <MenuList>
           <MenuItem>Profile</MenuItem>
-          <MenuItem>Dashboard</MenuItem>
+          <MenuItem onClick={Dashboard}>Dashboard</MenuItem>
           <MenuItem onClick={logout}>Logout</MenuItem>
         </MenuList>
       </Menu>
