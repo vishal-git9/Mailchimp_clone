@@ -42,8 +42,10 @@ import {
 } from "@chakra-ui/react";
 import { AuthContext } from "../Context/Authcontext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 export default function CallToActionWithIllustration() {
   const{AuthStatus} = useContext(AuthContext)
+  const navigate = useNavigate()
   const{isAuth,data} = AuthStatus
   return (
     <Container maxW={"9xl"}>
@@ -75,7 +77,7 @@ export default function CallToActionWithIllustration() {
             variant="outline"
             bg={"#FFE01B"}
             _hover={{ bg: "#FFE01B" }}
-            textAlign="center"
+            textAlign="center" onClick={()=>navigate("/pricing")}
           >
             Signup
           </Button>
@@ -242,8 +244,8 @@ function Video() {
       display={"flex"}
       flexDirection="column"
       alignItems={"center"}
-      pt={"7rem"}
-      pb="7rem"
+      pt={{base:"2rem",md:"5rem",lg:"7rem"}}
+      pb={{base:"2rem",md:"5rem",lg:"7rem"}}
     >
       <Box>
         <video src={Platform1Hd} width="1200px" controls></video>
@@ -252,8 +254,8 @@ function Video() {
         mt={"30px"}
         color="white"
         textAlign={"center"}
-        width="60%"
-        fontSize={"20px"}
+        width={{base:"100%",md:"80%",lg:"60%"}}
+        fontSize={{base:"14px",md:"20px",lg:"20px"}}
       >
         Most email marketing platforms tell you how your campaigns perform. We
         analyze the data from the billions of emails we send to give you
@@ -267,7 +269,7 @@ function Video() {
 function Journey() {
   return (
     <Stack
-      direction={["column", "row"]}
+    flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}
       spacing="24px"
       mt={"2rem"}
       justifyContent={"space-around"}
@@ -278,7 +280,7 @@ function Journey() {
       <Flex
         flexDirection="column"
         justifyContent={"center"}
-        width="40%"
+        width={{base:"100%",md:"80%",sm:"100%",lg:"40%"}}
         gap={"20px"}
       >
         <Heading>Keep your emails relevant and your brand growing</Heading>
@@ -305,8 +307,7 @@ function Journey() {
 }
 function JourneySecond() {
   return (
-    <Stack
-      direction={["column", "row"]}
+    <Stack flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}
       spacing="24px"
       mt={"2rem"}
       justifyContent={"space-around"}
@@ -314,7 +315,7 @@ function JourneySecond() {
       <Flex
         flexDirection="column"
         justifyContent={"center"}
-        width="40%"
+        width={{base:"100%",md:"80%",sm:"100%",lg:"40%"}}
         gap={"20px"}
       >
         <Heading>Discover new ways to automate</Heading>
@@ -344,7 +345,7 @@ function JourneySecond() {
 function JourneyThree() {
   return (
     <Stack
-      direction={["column", "row"]}
+    flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}
       spacing="24px"
       mt={"2rem"}
       justifyContent={"space-around"}
@@ -352,7 +353,7 @@ function JourneyThree() {
       <Flex
         flexDirection="column"
         justifyContent={"center"}
-        width="40%"
+        width={{base:"100%",md:"80%",sm:"100%",lg:"40%"}}
         gap={"20px"}
       >
         <Heading>Keep customers ready to buy with engaging content</Heading>
@@ -413,12 +414,13 @@ function Integrations(){
   return(
     <Box width={"90%"} margin="auto">
       <Fade right>
-      <Heading width={"50%"}>
+      <Heading width={{base:"100%",md:"80%",lg:"40%"}} fontSize={{base:"20px",md:"24px",lg:"35px"}}>
       Bring in more data, drive more growth with our integrations
       </Heading>
       </Fade>
-    <SimpleGrid columns={3} spacing={10} mt="2rem">
-      <Fade left><Flex justifyContent={"space-around"} gap={"20px"} padding="30px" _hover={
+    <SimpleGrid columns={{base:1,md:2,lg:3}} spacing={10} mt="2rem">
+      <Fade left>
+        <Flex justifyContent={"space-around"} gap={"20px"} padding={{base:"10px",md:"20px",lg:"30px"}} _hover={
         {
           backgroundColor:"#EFEEEA",
           cursor:"pointer",

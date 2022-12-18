@@ -4,12 +4,11 @@ import Pricing from '../Features/pricing'
 import Commerce from '../Features/Commerce'
 export default function PricingPage(){
     return(
-        <Box>
+        <Box mt={"10rem"}>
     <Tabs size='md' variant='enclosed'>
     <TabList>
         <Tab>Marketing Platform</Tab>
         <Tab>Website & Commerce</Tab>
-        <Tab>Transactional Email</Tab>
     </TabList>
     <TabPanels>
         <TabPanel>
@@ -19,9 +18,6 @@ export default function PricingPage(){
         <Box>
         <Commerce/>
         </Box>
-        </TabPanel>
-        <TabPanel>
-        <Box><ThreeTierPricing/></Box>
         </TabPanel>
     </TabPanels>
     </Tabs>

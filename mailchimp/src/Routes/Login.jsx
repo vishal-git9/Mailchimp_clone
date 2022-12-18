@@ -15,12 +15,13 @@ import {
 import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Authcontext";
 import AlertLogin from "../Components/Alert";
 export default function Login() {
   // .for using the global auth context
   const { AuthStatus, setAuthStatus } = useContext(AuthContext);
+  const navigate = useNavigate()
   // getting the form data from users
   const [formData, setFormData] = useState({});
   const [submitData, setSubmitData] = useState({});
@@ -56,6 +57,7 @@ export default function Login() {
               isAuth: true,
               data: data,
             });
+            navigate("/dashboard")
           }
         });
     }

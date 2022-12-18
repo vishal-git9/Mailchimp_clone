@@ -4,7 +4,7 @@ import Zoom from "react-reveal/Zoom"
 export default function ImageButton({image,heading,text,buttonText}) {
     return (
       <Stack
-        direction={["column", "row"]}
+        direction={{base:"column",md:"column",sm:"column",lg:"row"}}
         spacing="24px"
         mt={"2rem"}
         justifyContent={"space-around"}
@@ -17,7 +17,7 @@ export default function ImageButton({image,heading,text,buttonText}) {
         <Flex
           flexDirection="column"
           justifyContent={"center"}
-          width="40%"
+          width={{base:"100%",md:"80%",sm:"100%",lg:"40%"}}
           gap={"20px"}
         >
           <Slide right>

@@ -61,10 +61,10 @@ export default function Checkout() {
         onOpen()
     }
   return (
-    <Stack justifyContent={"center"} alignItems="center">
+    <Stack justifyContent={"center"} alignItems="center" >
       {click?<PaymentProcess overlay = {overlay} isOpen={isOpen} onClose={onClose}/>:null}
-    <Stack width={"80%"} margin="auto" justifyContent={"space-between"} flexDirection="row">
-      <VStack width={"50%"} alignItems={"flex-start"} gap="80px">
+    <Stack width={{base:"95%",md:"90%",sm:"90%",lg:"80%"}}  margin="auto" justifyContent={"space-between"} flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}} gap="20px">
+      <VStack width={{base:"100%",md:"90%",sm:"90%",lg:"50%"}} alignItems={"flex-start"} gap="80px">
       <CheckoutSteps/>
         <VStack alignItems={"flex-start"}>
           <Heading>Payment method</Heading>
@@ -95,7 +95,7 @@ export default function Checkout() {
           <Button>Cancel</Button>
         </HStack>
       </VStack>
-      <Stack width={"40%"} bgColor="#E3E9F1" padding={"30px"} pt="100px">
+      <Stack width={{base:"100%",md:"90%",sm:"90%",lg:"40%"}}  bgColor="#E3E9F1" padding={"30px"} pt="100px">
         <BillingSummary ConfirmationPage = {ConfirmationPage} subscriptionPrice={subscriptionPrice}/>
       </Stack>
     </Stack>

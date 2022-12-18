@@ -14,12 +14,15 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 export default function Confirmation() {
     const {setAuthStatus} = useContext(AuthContext)
-    setAuthStatus({
+    const updateUser =  ()=>{
+      setAuthStatus({
         isAuth:true,
         data:null
     })
+  }
     const navigate = useNavigate()
     useEffect(()=>{
+      updateUser()
         setTimeout(()=>{
             navigate("/infoForm")
         },5000)

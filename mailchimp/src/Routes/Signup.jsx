@@ -22,7 +22,7 @@ import {
     const navigate = useNavigate()
 
     const Infoform = ()=>{
-      navigate("/infoForm")
+      navigate("/checkout")
     }
     return (
       <Flex
