@@ -101,15 +101,15 @@ export default function Pricing() {
       localStorage.setItem("pricing",JSON.stringify(Free))
     }
 
-    navigate("/checkout")
+    navigate("/signup")
   }
   return (
-    <Box py={12} textAlign="center">
-      <HStack spacing={2} textAlign="center" justifyContent="center">
+    <Box py={12} textAlign="center" overflowX={"hidden"}>
+      <HStack spacing={2} textAlign="center" justifyContent="center" flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}>
         <Heading as="h1" fontSize="4xl">
           Plans that fit your need
         </Heading>
-        <Select width={"20%"} onChange={(e) => changePrice(e)}>
+        <Select width={{base:"90%",md:"90%",sm:"90%",lg:"20%"}} onChange={(e) => changePrice(e)}>
           <option value="500">500</option>
           <option value="1500">1500</option>
           <option value="2500">2500</option>
@@ -385,13 +385,14 @@ export default function Pricing() {
       </Button>
       <HStack
         width={"80%"}
+        h={{base:"fit-content",md:"fit-content",sm:"fit-content",lg:"400px"}}
         margin="auto"
         justifyContent={"space-between"}
+        flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}
         textAlign={"left"}
         alignItems="flex-start"
-        height={"300px"}
         mt="60px"
-      >
+        gap={{base:"100px",md:"100px",sm:"100px",lg:"30px"}}      >
         <ContentWithButton
           heading={Content.content1.heading}
           text={Content.content1.text}
@@ -410,8 +411,9 @@ export default function Pricing() {
         justifyContent={"space-between"}
         textAlign={"left"}
         alignItems="flex-start"
-        height={"300px"}
-        mt="60px"
+        h={{base:"fit-content",md:"fit-content",sm:"fit-content",lg:"400px"}}
+        flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}
+        gap={{base:"100px",md:"100px",sm:"100px",lg:"30px"}}
       >
         <ContentWithButton
           heading={Content.content3.heading}
@@ -433,7 +435,7 @@ export default function Pricing() {
 
 function Accordi() {
   return (
-    <Box mt={"4rem"} width="80%" margin={"auto"}>
+    <Box margin={"auto"} width={{base:"100%",md:"90%",sm:"100%",lg:"80%"}} marginTop={{base:"10rem",md:"5rem",sm:"10rem",lg:"4rem"}}>
       <Heading>FAQ's</Heading>
     <Accordion allowToggle m={"5px"} mt={"50px"}>
       <AccordionItem padding={"5px"}>
@@ -519,7 +521,7 @@ function Images(){
   return(
     <Stack mt={"6rem"}>
       <Heading>You’ll be in good company</Heading>
-      <HStack justifyContent="center" gap="80px" paddingTop={"4rem"}>
+      <HStack justifyContent="center" gap="80px" paddingTop={"4rem"} flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}>
       <Slide left>
       <Center><Image src='https://eep.io/images/yzco4xsimv0y/6EIjMFs2ZyQWsmOOYc4cGe/19d62aa558c8f5d4c4bf222e7e36571b/EastFork.png?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center></Slide>
       <Slide left><Center><Image src='https://eep.io/images/yzco4xsimv0y/5Z9C7t0HDyyaWu60iWE00A/2e3d2eaa056d0d86c6712c88d239762f/chronicle-books-logo.jpg?w=260&fm=webp&q=70' alt='Company' width={"100px"}/></Center></Slide>

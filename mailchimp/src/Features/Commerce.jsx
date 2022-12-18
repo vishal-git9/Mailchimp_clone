@@ -59,14 +59,14 @@ export default function Commerce() {
       alignItems={"center"}
       gap="80px"
     ><Zoom left>
-      <HStack width={"80%"} margin="auto" justifyContent={"center"}>
+      <HStack width={{base:"100%",md:"90%",sm:"90%",lg:"80%"}} margin="auto" justifyContent={"center"} flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}} gap="10px" alignItems={"center"} mt="2rem">
         <VStack
           boxShadow={"rgba(0, 0, 0, 0.16) 0px 1px 4px"}
           textAlign="left"
           justifyContent={"space-around"}
           alignItems="flex-start"
           padding={"20px"}
-          width="30%"
+          width={{base:"100%",md:"90%",sm:"90%",lg:"30%"}}
           gap={"10px"}
           height="420px"
         >
@@ -107,7 +107,7 @@ export default function Commerce() {
           justifyContent={"space-around"}
           alignItems="flex-start"
           padding={"20px"}
-          width="30%"
+          width={{base:"100%",md:"90%",sm:"90%",lg:"30%"}}
           gap={"10px"}
           height="420px"
         >
@@ -148,7 +148,7 @@ export default function Commerce() {
           justifyContent={"space-around"}
           alignItems="flex-start"
           padding={"20px"}
-          width="30%"
+          width={{base:"100%",md:"90%",sm:"90%",lg:"30%"}}
           gap={"10px"}
           height="420px"
         >
@@ -198,7 +198,7 @@ export default function Commerce() {
       >
         Compare all plans
       </Button>
-      <Text textAlign={"center"} width="80%">
+      <Text textAlign={"center"} width={{base:"100%",md:"90%",sm:"90%",lg:"80%"}}>
         *All Websites & Commerce plans include access to our Mailchimp stores
         product. If you create and publish a store, transaction fees will be
         charged to you on a per transaction basis based on the total order value
@@ -211,13 +211,13 @@ export default function Commerce() {
         width="100%"
         gap={"10px"}
         padding="50px"
-        
         justifyContent="center"
+        alignItems={"center"}
       >
-        <Heading>Featured Product:</Heading>
+        <Heading >Featured Product:</Heading>
         <Fade left>
           <Center>
-        <Text width={"50%"} textAlign="center">
+        <Text width={{base:"100%",md:"90%",sm:"90%",lg:"50%"}} textAlign="center">
           Create unlimited one-on-one and group services with our new Advanced
           Scheduling add-on for $8/month.
         </Text>
@@ -250,7 +250,9 @@ export default function Commerce() {
         justifyContent={"space-between"}
         textAlign={"left"}
         alignItems="flex-start"
-        height={"300px"}
+        h={{base:"fit-content",md:"fit-content",sm:"fit-content",lg:"400px"}}
+        flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}
+        gap={{base:"100px",md:"100px",sm:"100px",lg:"30px"}} 
         mt="90px">
       <ContentWithButton heading={ContentButton.content1.heading} text={ContentButton.content1.text} buttonText={ContentButton.content1.buttontext}/>
       <Divider orientation="vertical" variant={"solid"}/>
@@ -274,18 +276,22 @@ function PowerfulFeatures() {
       width="100%"
       alignItems={"center"}
       gap="40px"
-      padding={"80px"}
+      padding={{base:"0px",md:"60px",sm:"40px",lg:"80px"}}
+      justifyContent="center"
     >
-      <Heading>Add on powerful features</Heading>
+      <Heading fontSize={{base:"25px",md:"25px",sm:"25px",lg:"40px"}} textAlign="center">Add on powerful features</Heading>
       <Stack
         bgColor={"white"}
-        width="90%"
-        padding={"80px 80px 0px 80px"}
+        width={{base:"100%",md:"90%",sm:"90%",lg:"90%"}}
+        paddingTop={{base:"0px",md:"60px",sm:"40px",lg:"80px"}}
+        paddingBottom={{base:"0px",md:"0px",sm:"0px",lg:"0px"}}
+        paddingLeft={{base:"0px",md:"60px",sm:"40px",lg:"80px"}}
+        paddingRight={{base:"0px",md:"60px",sm:"40px",lg:"80px"}}
         gap="40px"
       >
-        <HStack gap={"40px"}>
-          <VStack alignItems={"flex-start"} width="60%" gap="10px">
-            <Heading>Add on a domain</Heading>
+        <HStack gap={"40px"} flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}} alignItems="flex-start">
+          <VStack alignItems={"flex-start"} width={{base:"100%",md:"100%",sm:"100%",lg:"60%"}} gap="10px">
+            <Heading fontSize={{base:"20px",md:"25px",sm:"25px",lg:"40px"}}>Add on a domain</Heading>
             <Text>
               Buy a custom domain to help people find you on the web. Plus, a
               consistently branded online presence builds trust across email and
@@ -311,7 +317,7 @@ function PowerfulFeatures() {
             />
           </Box>
         </HStack>
-        <HStack p="20px" bgColor="#F6F6F4" width="100%" gap={"20px"}>
+        <HStack p="20px" bgColor="#F6F6F4" width="100%" gap={"20px"} flexDirection={{base:"column",md:"column",sm:"column",lg:"row"}}>
           <Image
             src="https://eep.io/images/yzco4xsimv0y/azFGj9nAkrFqZwtlOxrOO/c7633a0a233acbff0941c35632f69ebc/google-workspace.png"
             width={"250px"}
@@ -329,7 +335,7 @@ function PowerfulFeatures() {
 
 function Accordi() {
     return (
-      <Box mt={"4rem"} width="80%" margin={"auto"}>
+      <Box margin={"auto"} width={{base:"100%",md:"90%",sm:"100%",lg:"80%"}} marginTop={{base:"10rem",md:"5rem",sm:"10rem",lg:"4rem"}}>
         <Heading textAlign={"center"}>FAQ's</Heading>
       <Accordion allowToggle m={"5px"} mt={"50px"}>
         <AccordionItem padding={"5px"}>

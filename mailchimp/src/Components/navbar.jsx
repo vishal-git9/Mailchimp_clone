@@ -343,12 +343,12 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Products',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Get your business online',
+        subLabel: 'Take your business global',
         href: '#',
       },
       {
-        label: 'Inspiration',
+        label: 'Market your business',
         subLabel: 'Up-and-coming Designers',
         href: '#',
       },
@@ -358,13 +358,13 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Inspiration',
     children: [
       {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
+        label: 'Podcast',
+        subLabel: 'get our newly podcast for business',
         href: '#',
       },
       {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
+        label: 'Series',
+        subLabel: 'get our newly series for business',
         href: '#',
       },
     ],
