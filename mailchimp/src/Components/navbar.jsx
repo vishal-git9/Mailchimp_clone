@@ -165,7 +165,7 @@ export default function Navbar() {
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <Stack onClick={ProductsPage} cursor="pointer">
-          <Image src="https://i.ibb.co/jkyhkNB/Light-mail.png" width={"150px"} height="50px" objectFit={"cover"}></Image>
+          <Image src="https://iili.io/HcoOxvj.png" width={"150px"} height="50px" objectFit={"cover"}></Image>
           </Stack>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
